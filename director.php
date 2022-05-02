@@ -1,6 +1,7 @@
 <?php
 
     $conn = mysqli_connect('localhost', 'root', '', 'movie_db');
+    $directors = array();
 
     if($conn) {
         $director = $_GET['name'];
@@ -18,12 +19,12 @@
             echo '<strong>Name: </strong>' . $directorValue['name'] . '<br>';
             echo '<strong>Nationality: </strong>' . $directorValue['nationality'] . '<br>';
             echo '<strong>Date of Birth: </strong>' . $directorValue['birth_date'] .'<br><br>';
-            echo '<strong>List of movies: </strong><ul style="margin-top:0">';
-
+            echo '</ul><hr>';
+            echo '<h3>List of movies: </h3><ul style="margin-top:0">';
             foreach ($movies as $movieValue) {
                 echo '<li>' . $movieValue['title'];
             };
-            echo '</ul><hr>';
+
         }
     } else {
         echo 'Error with mysql connection !';

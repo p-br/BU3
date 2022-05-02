@@ -1,17 +1,18 @@
 <?php
     $conn = mysqli_connect('localhost', 'root', '', 'movie_db');
+    $directorResults = array();
 
-    if($conn) {
-        $name = $_GET['name'];
-        $nationality = $_GET['nationality'];
-        $birth_date = $_GET['birth_date'];
-        $image = $_GET['image'];
-        
-             
+        if($conn) {
+            $name = $_GET['name'];
+            $nationality = $_GET['nationality'];
+            $birth_date = $_GET['birth_date'];
+            $image = $_GET['image'];
+            
+                
 
-        $directorQuery = "INSERT INTO directors(id, name, nationality, birth_date, image) VALUES ('','$name','$nationality','$birth_date','$image')";
-        $directorResults = mysqli_query($conn, $directorQuery);
-    }
+            $directorQuery = "INSERT INTO directors(id, name, nationality, birth_date, image) VALUES ('','$name','$nationality','$birth_date','$image')";
+            $directorResults = mysqli_query($conn, $directorQuery);
+        };
 ?>
 
 <!DOCTYPE html>

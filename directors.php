@@ -1,6 +1,7 @@
 <?php
 
     $conn = mysqli_connect('localhost', 'root', '', 'movie_db');
+    $directors = array();
 
     if($conn) {
         $query = 'SELECT * FROM directors';
@@ -8,9 +9,10 @@
         $directors = mysqli_fetch_all($results, MYSQLI_ASSOC);
 
         foreach ($directors as $directorValue) {
-            echo '<strong>Name: <strong>' . $directorValue['name'] . '<br>';
-            echo '<strong>Nationality: <strong>' . $directorValue['nationality'] . '<br>';
-            echo '<strong>Date of Birth: <strong>' . $directorValue['birth_date'] .'<br>';
+            echo '<img src=' . $directorValue['image'] . ' width=200px>' . '<br>';
+            echo '<strong>Name: </strong><a href="director.php?name=' . $directorValue['name'] . '">' . $directorValue['name'] . '</a><br>';
+            echo '<strong>Nationality: </strong>' . $directorValue['nationality'] . '<br>';
+            echo '<strong>Date of Birth: </strong>' . $directorValue['birth_date'] .'<br>';         
             echo '<hr>';
         }
 
